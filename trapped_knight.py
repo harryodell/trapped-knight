@@ -120,6 +120,10 @@ class knight:
         
     def move(self):
         
+'''
+list of potential visits
+get 
+        
         
 
 
