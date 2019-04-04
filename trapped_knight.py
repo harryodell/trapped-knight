@@ -67,26 +67,8 @@ test = spiral(df, direction = 'East')
 
 '''
 test.first_count()
-print(test.direction)
-print(test.x)
-print(test.y)
-print(test.environment[test.x][test.y])
-print(test.count)
-
 test.first_move()
-print(test.direction)
-print(test.x)
-print(test.y)
-print(test.environment[test.x][test.y])
-print(test.count)
-
 test.counter()
-print(test.direction)
-print(test.x)
-print(test.y)
-print(test.environment[test.x][test.y])
-print(test.count)
-
 test.move()
 print(test.direction)
 print(test.x)
@@ -119,12 +101,73 @@ class knight:
         self.y = 50
         
     def move(self):
+        self.x, self.y = self.x + 1, self.y + 1
+        
+    def moves(self):
+        allMoves = []
+        move1 = self.environment[self.x + 1][self.y - 2]
+        move2 = self.environment[self.x + 2][self.y - 1]
+        move3 = self.environment[self.x + 2][self.y + 1]
+        move4 = self.environment[self.x + 1][self.y + 2]
+        move5 = self.environment[self.x - 1][self.y + 2]
+        move6 = self.environment[self.x - 2][self.y + 1]
+        move7 = self.environment[self.x - 2][self.y - 1]
+        move8 = self.environment[self.x - 1][self.y - 2]
+        
+        self.environment[self.x][self.y] = self.environment[self.x][self.y] + 10000
+        
+        allMoves.extend([move1, move2, move3, move4, move5, move6, move7, move8])
+        
+        whichMove = allMoves.index(min(allMoves)) + 1
+        
+        if whichMove == 1:
+            self.x = (self.x + 1)
+            self.y = (self.y - 2)
+        elif whichMove == 2:
+            self.x = (self.x + 2)
+            self.y = (self.y - 1)
+        elif whichMove == 3:
+            self.x = (self.x + 2)
+            self.y = (self.y + 1)
+        elif whichMove == 4:
+            self.x = (self.x + 1)
+            self.y = (self.y + 2)
+        elif whichMove == 5:
+            self.x = (self.x - 1)
+            self.y = (self.y + 2)
+        elif whichMove == 6:
+            self.x = (self.x - 2)
+            self.y = (self.y + 1)
+        elif whichMove == 7:
+            self.x = (self.x - 2)
+            self.y = (self.y - 1)
+        elif whichMove == 8:
+            self.x = (self.x - 1)
+            self.y = (self.y - 2)
+        
+        #return whichMove
+
+
+'''
+get first move value 
+if second move less than first move, adopt that move
         
 '''
-list of potential visits
-get 
-        
-        
+
+ron = knight(env)
+ron.y
+ron.x
+ron.environment[ron.x][ron.y]
+ron.moves()
+ron.x
+ron.y
+
+ron.move()
+ron.environment[ron.x][ron.y]
+
+for i in range(3000):    
+    ron.moves()
+
 
 
 
