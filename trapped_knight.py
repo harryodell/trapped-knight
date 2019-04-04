@@ -93,6 +93,7 @@ plt.imshow(env)
 
 
 
+
 class knight:
     
     def __init__(self, environment):        
@@ -104,6 +105,7 @@ class knight:
         self.x, self.y = self.x + 1, self.y + 1
         
     def moves(self):
+        
         allMoves = []
         move1 = self.environment[self.x + 1][self.y - 2]
         move2 = self.environment[self.x + 2][self.y - 1]
@@ -117,6 +119,9 @@ class knight:
         self.environment[self.x][self.y] = self.environment[self.x][self.y] + 10000
         
         allMoves.extend([move1, move2, move3, move4, move5, move6, move7, move8])
+        
+        if min(allMoves) > 10000:
+            print("knight trapped")
         
         whichMove = allMoves.index(min(allMoves)) + 1
         
@@ -144,15 +149,54 @@ class knight:
         elif whichMove == 8:
             self.x = (self.x - 1)
             self.y = (self.y - 2)
-        
-        #return whichMove
 
 
-'''
-get first move value 
-if second move less than first move, adopt that move
-        
-'''
+
+
+
+
+
+ron = knight(env)
+
+history = []
+
+for i in range(2020):    
+    history.append([ron.x, ron.y])
+    ron.moves()
+    
+ron.x
+ron.y
+ron.environment[ron.x][ron.y] - 10000
+    
+ronenv = ron.environment
+plt.imshow(ronenv)
+plt.plot(ronenv)
+
+
+
+
+
+ron.moves
+ron.x
+ron.y
+ron.environment[ron.x+1][ron.y+1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ron = knight(env)
 ron.y
@@ -168,7 +212,9 @@ ron.environment[ron.x][ron.y]
 for i in range(3000):    
     ron.moves()
 
-
+ronenv = ron.environment
+plt.imshow(ronenv)
+plt.plot(ronenv)
 
 
 
